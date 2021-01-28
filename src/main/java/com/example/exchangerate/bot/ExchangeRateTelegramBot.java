@@ -1,24 +1,14 @@
 package com.example.exchangerate.bot;
 
-import com.example.exchangerate.model.UsersChat;
-import com.example.exchangerate.parser.WebParser;
-import com.example.exchangerate.services.UsersChatService;
-import org.aspectj.weaver.ast.Test;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
-import org.telegram.telegrambots.bots.TelegramWebhookBot;
-import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
+@Slf4j
 @Component
 public class ExchangeRateTelegramBot extends TelegramLongPollingBot {
     private String botUsername;

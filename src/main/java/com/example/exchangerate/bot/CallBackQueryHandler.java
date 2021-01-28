@@ -1,10 +1,8 @@
 package com.example.exchangerate.bot;
 
 import com.example.exchangerate.model.Currency;
-import com.example.exchangerate.model.ExchangeRate;
-import com.example.exchangerate.model.UsersChat;
 import com.example.exchangerate.parser.WebParser;
-import com.example.exchangerate.services.UsersChatService;
+import lombok.extern.slf4j.Slf4j;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -15,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 public class CallBackQueryHandler {
     private static Map<Long, Currency> chosenCurrency = new HashMap<>();
     public static SendMessage handleCallBackQuery(Update update, BotState botState){
@@ -22,8 +21,10 @@ public class CallBackQueryHandler {
             case START:
                 return new SendMessage().setChatId(UpdateReceiver.getChatId(update)).setText("Пожалуйста, введите команду 'start' для начала работы");
             case ASK_BANK:
+                log.info(UpdateReceiver.getUserAdres(update) + " made a request to bank");
                 return handleCallBackQueryBank(update);
             case ASK_CURRENCY:
+                log.info(UpdateReceiver.getUserAdres(update) + " made a request to currency");
                 return handleCallBackQueryCurrency(update);
             default:
                 return new SendMessage().setChatId(update.getMessage().getChatId()).setText("Пожалуйста, выберите один из представленных вариантов");

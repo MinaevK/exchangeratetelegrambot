@@ -7,7 +7,7 @@ before_install:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: 07cc473ec6fade7df2be288a061ecbcfd5c6a336
+  github_token: b443799065b6b8a7dade41a289e0caa288c45232
   keep_history: true
   on:
     branch: master

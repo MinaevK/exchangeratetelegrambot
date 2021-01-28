@@ -1,5 +1,9 @@
 language: java
 
+sudo: required
+
+before_install:
+  - chmod +x gradlew
 deploy:
   provider: pages
   skip_cleanup: true
@@ -7,5 +11,5 @@ deploy:
   keep_history: true
   on:
     branch: master
-before_script:
-  - chmod +x gradlew
+sccript: ./gradlew build
+

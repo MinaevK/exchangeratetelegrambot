@@ -33,6 +33,6 @@ public class ExchangeRateTelegramBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "1638027031:AAGYFsrdrY3B4qPUOVh3qwZvSNuhf_uGnMU";
+        return "null";
     }
 }
